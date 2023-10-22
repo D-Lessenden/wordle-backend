@@ -1,0 +1,15 @@
+These are the core models needed for the Wordle game. Depending on your specific game features, you might need additional models or fields within these models. For instance, you might want to track the history of guesses, record the time taken to complete a game, or store additional game statistics.
+
+Remember to define the associations between these models. For example, a Game belongs_to a User (if you have user accounts), a Game has_one target Word, a Game has_many Guesses, and a Guess belongs_to a Game. You would also need to set up the appropriate validations and constraints to ensure data integrity and game logic.
+
+Additionally, you would need to create controller actions and routes to handle CRUD (Create, Read, Update, Delete) operations for these models and implement the game logic in the controller actions for the Wordle game.
+
+
+The Game model is associated with the User model (optional), Word model, and Guess model.
+
+It includes validations for attempts (number of guesses allowed) and status (ongoing, won, or lost).
+There's an after_initialize callback to set default values when a new game is created.
+
+Custom methods won? and lost? are included to determine the game's outcome.
+
+Please adapt this code to suit your specific game logic and requirements. If your game has additional features or specific business rules, you may need to add more methods and validations to the Game model.

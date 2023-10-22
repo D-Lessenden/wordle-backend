@@ -1,0 +1,209 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/daniellessenden/git/wordle-clone/backend/app/helpers/application_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/daniellessenden/git/wordle-clone/backend/app/models/game_history.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/daniellessenden/git/wordle-clone/backend/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/daniellessenden/git/wordle-clone/backend/app/models/game.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/daniellessenden/git/wordle-clone/backend/app/models/guess.rb": {
+        "lines": [
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/daniellessenden/git/wordle-clone/backend/app/models/user.rb": {
+        "lines": [
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/daniellessenden/git/wordle-clone/backend/app/models/word.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/daniellessenden/git/wordle-clone/backend/app/controllers/application_controller.rb": {
+        "lines": [
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/daniellessenden/git/wordle-clone/backend/app/controllers/game_controller.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/daniellessenden/git/wordle-clone/backend/app/controllers/guess_controller.rb": {
+        "lines": [
+
+        ],
+        "branches": {
+        }
+      },
+      "/Users/daniellessenden/git/wordle-clone/backend/app/controllers/user_controller.rb": {
+        "lines": [
+
+        ],
+        "branches": {
+        }
+      },
+      "/Users/daniellessenden/git/wordle-clone/backend/app/controllers/word_controller.rb": {
+        "lines": [
+
+        ],
+        "branches": {
+        }
+      },
+      "/Users/daniellessenden/git/wordle-clone/backend/app/services/word_service.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      }
+    },
+    "timestamp": 1697947989
+  }
+}
