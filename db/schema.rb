@@ -10,27 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_21_054135) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_25_042405) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "game_histories", force: :cascade do |t|
-    t.bigint "user_id", null: false
     t.string "target_word"
     t.string "status"
+    t.integer "games_completed"
+    t.integer "one_guess"
+    t.integer "two_guesses"
+    t.integer "three_guesses"
+    t.integer "four_guesses"
+    t.integer "five_guesses"
+    t.integer "six_guesses"
+    t.integer "failed"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_game_histories_on_user_id"
   end
 
   create_table "games", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.string "target_word", null: false
     t.integer "attempts"
     t.string "status"
+    t.bigint "word_id", null: false
+    t.bigint "game_history_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_games_on_user_id"
+    t.index ["game_history_id"], name: "index_games_on_game_history_id"
+    t.index ["word_id"], name: "index_games_on_word_id"
   end
 
   create_table "guesses", force: :cascade do |t|
@@ -57,6 +66,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_21_054135) do
   end
 
   add_foreign_key "game_histories", "users"
-  add_foreign_key "games", "users"
+  add_foreign_key "games", "game_histories"
+  add_foreign_key "games", "words"
   add_foreign_key "guesses", "games"
 end
