@@ -10,21 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_25_042405) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_25_042354) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "game_histories", force: :cascade do |t|
-    t.string "target_word"
-    t.string "status"
-    t.integer "games_completed"
-    t.integer "one_guess"
-    t.integer "two_guesses"
-    t.integer "three_guesses"
-    t.integer "four_guesses"
-    t.integer "five_guesses"
-    t.integer "six_guesses"
-    t.integer "failed"
+    t.integer "games_played", default: 0
+    t.integer "one_guess", default: 0
+    t.integer "two_guesses", default: 0
+    t.integer "three_guesses", default: 0
+    t.integer "four_guesses", default: 0
+    t.integer "five_guesses", default: 0
+    t.integer "six_guesses", default: 0
+    t.integer "games_lost", default: 0
+    t.integer "games_won", default: 0
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -32,22 +31,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_25_042405) do
   end
 
   create_table "games", force: :cascade do |t|
-    t.integer "attempts"
-    t.string "status"
-    t.bigint "word_id", null: false
+    t.string "result"
+    t.integer "total_guesses", default: 0
+    t.string "target_word"
     t.bigint "game_history_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["game_history_id"], name: "index_games_on_game_history_id"
-    t.index ["word_id"], name: "index_games_on_word_id"
-  end
-
-  create_table "guesses", force: :cascade do |t|
-    t.bigint "game_id", null: false
-    t.string "word"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["game_id"], name: "index_guesses_on_game_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -58,15 +48,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_25_042405) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "words", force: :cascade do |t|
-    t.string "word"
-    t.integer "word_length"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   add_foreign_key "game_histories", "users"
   add_foreign_key "games", "game_histories"
-  add_foreign_key "games", "words"
-  add_foreign_key "guesses", "games"
 end

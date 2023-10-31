@@ -6,7 +6,9 @@ class User < ApplicationRecord
     validates :password, presence: true, if: :new_record?
     validates :password_confirmation, presence: true, if: :new_record?
     validates_uniqueness_of :email
-
-    has_many :games
-    has_many :game_histories
+    validates :username, presence: true
+    validates_uniqueness_of :username
+    
+    has_one :game_history
+    has_many :games, through: :game_history
 end 
