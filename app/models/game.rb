@@ -1,8 +1,8 @@
 # This model represents individual game instances. It would include fields such as target_word (the word to be guessed), attempts (the number of guesses allowed), status (ongoing, won, or lost), and user_id (if you're implementing user accounts).
 
 class Game < ApplicationRecord
-  # belongs_to :user
   belongs_to :game_history
+  belongs_to :user
 
 
   # Callback to initialize a new game
