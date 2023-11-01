@@ -3,13 +3,16 @@ require 'rails_helper'
 RSpec.describe Game, type: :model do
   describe 'Validations' do
     it {should belong_to :game_history}
+    # it {should belong_to :user}
   end 
 
-  it "should set defaults to 0 when initialized" do 
-    user = User.create(username: "user1", email: "user1@email.com", password: "12345", password_confirmation: "12345")
-    game_history = GameHistory.new(user: user)
-    game = Game.create(game_history: game_history)
+  it "should set defaults to 0 when initialized and generate a 5 letter word" do 
+    user = User.create!(email: 'user@test.com', provider: 'google', token: '1234', uid: '98765')
+    game_history = GameHistory.create(user: user)
+    target_word = GameService.random_word
+    game = Game.create(game_history_id: game_history.id, target_word: target_word)
 
     expect(game.total_guesses).to eq(0)
+    expect(game.target_word.length).to eq(5)
   end 
 end
