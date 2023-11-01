@@ -1,6 +1,6 @@
 class GameHistory < ApplicationRecord
-  belongs_to :user
   has_many :games
+  belongs_to :user
 
   # def total_wins
   #   games.where(status: "won").count

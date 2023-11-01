@@ -1,13 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe GameHistory, type: :model do
-  describe "is valid with valid attributes" do
+  describe "relationships" do
     it {should belong_to :user}
   end
 
   it 'should set defaults to 0 when initialized' do 
-    user = User.create(username: "user1", email: "user1@email.com", password: "12345", password_confirmation: "12345")
-    game_history = GameHistory.new(user: user)
+    user = User.create!(email: 'user@test.com', provider: 'google', token: '1234', uid: '98765')
+    game_history = GameHistory.new(user_id: user.id)
 
     expect(game_history.games_played).to eq(0)
     expect(game_history.one_guess).to eq(0)

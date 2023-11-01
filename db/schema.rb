@@ -41,11 +41,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_25_042354) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username"
     t.string "email"
-    t.string "password_digest"
+    t.string "provider"
+    t.string "token"
+    t.string "refresh_token"
+    t.string "uid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["uid"], name: "index_users_on_uid"
   end
 
   add_foreign_key "game_histories", "users"
