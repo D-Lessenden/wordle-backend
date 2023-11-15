@@ -2,7 +2,7 @@
 
 class Game < ApplicationRecord
   belongs_to :game_history
-  belongs_to :user
+  # belongs_to :user
 
 
   # Callback to initialize a new game
