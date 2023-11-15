@@ -6,7 +6,7 @@ RSpec.describe GameHistory, type: :model do
   end
 
   it 'should set defaults to 0 when initialized' do 
-    user = User.create!(email: 'user@test.com', provider: 'google', token: '1234', uid: '98765')
+    user = User.create!(email: 'user@test.com', password: 'password', password_confirmation: 'password')
     game_history = GameHistory.new(user_id: user.id)
 
     expect(game_history.games_played).to eq(0)
