@@ -1,8 +1,18 @@
 FactoryBot.define do 
     factory :game do 
         game_history
-        result { 'Win' }
-        total_guesses { 5 }
-        target_word { 'Apple '}
+        result { nil }
+        total_guesses { 0 }
+        target_word { 'apple' }
+        game_board do
+            [
+              ["", "", "", "", ""],
+              ["", "", "", "", ""],
+              ["", "", "", "", ""],
+              ["", "", "", "", ""],
+              ["", "", "", "", ""],
+              ["", "", "", "", ""]
+            ]
+          end
     end 
 end 
