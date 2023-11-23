@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   # root "articles#index"
   namespace :api do 
     namespace :v1 do
-      resources :users, only: [] do
+      resources :sessions, only: [:create, :destroy]
+      resources :users do
           resources :game_history #, only: [:show]
           resources :game do 
             post 'play', on: :member
@@ -13,7 +14,7 @@ Rails.application.routes.draw do
             patch 'play', on: :member
           end
       end 
-      resources :users
+      # resources :users
     end 
   end
 end
