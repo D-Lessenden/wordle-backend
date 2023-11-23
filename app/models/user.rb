@@ -8,19 +8,10 @@ class User < ApplicationRecord
     validates :password_confirmation, presence: true, if: :new_record?
     
     has_one :game_history
-    # has_many :games, through: :game_history
 
     def self.exist?(id)
         find(id) rescue false 
     end 
+end
 
-    # def self.from_onmiauth(user_params)
-    #     user = find_or_create_by(uid: user_params[:uid])
-    #     user.email = user_params[:email]
-    #     user.provider = user_params[:provider]
-    #     user.token = user_params[:token]
-    #     user.refresh_token = user_params[:refresh_token]
-    #     user.save
-    #     user
-    # end 
-end 
+
