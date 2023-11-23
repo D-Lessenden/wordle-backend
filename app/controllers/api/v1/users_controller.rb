@@ -13,12 +13,13 @@ class Api::V1::UsersController < ApplicationController
     if user.nil?
       head :no_content
     else
-      render json: UserSerializer.new(user)
+      render json: UserSerializer.new(user, include: [:game_history])
     end
   end
   
   def create
     user = User.new(user_params)
+    game_history = GameHistory.create(user: user) if user.save
     render json: UserSerializer.new(user) if user.save
   end
 
