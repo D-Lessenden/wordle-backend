@@ -11,7 +11,7 @@ Rails.application.routes.draw do
           resources :game do 
             post 'play', on: :member
             get 'play', on: :member
-            patch 'play', on: :member
+            patch 'update', on: :member
           end
       end 
       # resources :users
