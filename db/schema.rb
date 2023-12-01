@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_25_042354) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_14_020924) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -37,18 +37,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_25_042354) do
     t.bigint "game_history_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.json "game_board", default: []
     t.index ["game_history_id"], name: "index_games_on_game_history_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "email"
-    t.string "provider"
-    t.string "token"
-    t.string "refresh_token"
-    t.string "uid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["uid"], name: "index_users_on_uid"
+    t.string "password_digest"
   end
 
   add_foreign_key "game_histories", "users"
